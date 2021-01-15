@@ -43,5 +43,19 @@ margin-top: 40px ;
     justify-content: center;
     align-items: center;
     color: var(--purple);
-    background-color: red;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--purple);
+    color: white;
+    border-color: var(--purple);
+    font-size: 18px;
+    transition: 200ms transform;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
 }
