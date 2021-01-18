@@ -1,5 +1,6 @@
 const boxes = Array.from(document.getElementsByClassName('box'));
 //Creates an array from array like objects
+const playText = document.getElementById('playText');
 
 const spaces = [null, null, null, null, null, null, null, null, null];
 const O_TEXT = "O";
@@ -32,19 +33,44 @@ const drawBoard = () => {
     });
 };
 
-//Mark boxes according to player
+//Mark boxes according to players
 const boxClicked = (e) => {
     //gets box's ID when clicked
     const id = e.target.id;
-    console.log(id);
     //if box is not currently taken set it to current player
     if (!spaces[id]) {
         spaces[id] = currentPlayer;
         //sets box's text to X or O based on currentPlayer
         e.target.innerText = currentPlayer;
+
+        if (playerHasWon()) {
+            playText.innerText = `${currentPlayer} Has Won!`
+            return;
+        }
+
         //Changes players from Os to Xs
         currentPlayer = currentPlayer === O_TEXT ? X_TEXT : O_TEXT;
     }
 };
+
+const playerHasWon = () => {
+    //Checks top for 3 in a row
+    if (spaces[0] === currentPlayer) {
+        if (spaces[1] === currentPlayer && spaces[2] === currentPlayer) {
+            console.log(`${currentPlayer} Wins Up Top`)
+            return true;
+        }
+        //Checks left for 3 in a row
+        if (spaces[3] === currentPlayer && spaces[6] === currentPlayer) {
+            console.log(`${currentPlayer} Wins On The Left`)
+            return true;
+        }
+        //Checks diagnol for 3 in a row
+        if (spaces[4] === currentPlayer && spaces[8] === currentPlayer) {
+            console.log(`${currentPlayer} Wins Diagonally`)
+            return true;
+        }
+    }
+}
 
 drawBoard();
