@@ -54,6 +54,7 @@ const boxClicked = (e) => {
 };
 
 const playerHasWon = () => {
+    //Checks top, left, and diagnol referencing box 0
     //Checks top for 3 in a row
     if (spaces[0] === currentPlayer) {
         if (spaces[1] === currentPlayer && spaces[2] === currentPlayer) {
@@ -70,6 +71,19 @@ const playerHasWon = () => {
             console.log(`${currentPlayer} Wins Diagonally`)
             return true;
         }
+    }
+    //Checks bottom and right referencing box 8
+    else if (spaces[8] === currentPlayer) {
+        if (spaces[2] === currentPlayer && spaces[5] === currentPlayer) {
+            console.log(`${currentPlayer} Wins On The Right`)
+            return true;
+        }
+        //Checks left for 3 in a row
+        if (spaces[6] === currentPlayer && spaces[7] === currentPlayer) {
+            console.log(`${currentPlayer} Wins On The Left`)
+            return true;
+        }
+        //Diagnol check already written above
     }
 }
 
