@@ -2,6 +2,12 @@ const boxes = Array.from(document.getElementsByClassName('box'));
 //Creates an array from array like objects
 console.log(boxes);
 
+const spaces = [null, null, null, null, null, null, null, null, null,]
+const O_TEXT = "O";
+const X_TEXT = "X";
+let currentPlayer = O_TEXT;
+console.log(boxes);
+
 const drawBoard = () => {
     boxes.forEach((box, index) => {
         let styleString = '';
