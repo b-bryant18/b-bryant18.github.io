@@ -22,7 +22,12 @@ const drawBoard = () => {
             styleString += `border-top: 3px solid var(--purple);`;
         }
         box.style = styleString;
-    })
-}
+        box.addEventListener('click', boxClicked)
+    });
+};
+
+const boxClicked = (e) => {
+    console.log("Box was clicked")
+};
 
 drawBoard();
