@@ -1,13 +1,13 @@
 const boxes = Array.from(document.getElementsByClassName('box'));
 //Creates an array from array like objects
-console.log(boxes);
 
-const spaces = [null, null, null, null, null, null, null, null, null,]
+const spaces = [null, null, null, null, null, null, null, null, null];
 const O_TEXT = "O";
 const X_TEXT = "X";
+//First player will use Os
 let currentPlayer = O_TEXT;
-console.log(boxes);
 
+//Styling for gameboard rows
 const drawBoard = () => {
     boxes.forEach((box, index) => {
         let styleString = '';
@@ -32,8 +32,19 @@ const drawBoard = () => {
     });
 };
 
+//Mark boxes according to player
 const boxClicked = (e) => {
-    console.log("Box was clicked")
+    //gets box's ID when clicked
+    const id = e.target.id;
+    console.log(id);
+    //if box is not currently taken set it to current player
+    if (!spaces[id]) {
+        spaces[id] = currentPlayer;
+        //sets box's text to X or O based on currentPlayer
+        e.target.innerText = currentPlayer;
+        //Changes players from Os to Xs
+        currentPlayer = currentPlayer === O_TEXT ? X_TEXT : O_TEXT;
+    }
 };
 
 drawBoard();
