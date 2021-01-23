@@ -73,7 +73,7 @@ const playerHasWon = () => {
         }
     }
     //Checks bottom and right referencing box 8
-    else if (spaces[8] === currentPlayer) {
+    if (spaces[8] === currentPlayer) {
         if (spaces[2] === currentPlayer && spaces[5] === currentPlayer) {
             console.log(`${currentPlayer} Wins On The Right`)
             return true;
@@ -84,6 +84,17 @@ const playerHasWon = () => {
             return true;
         }
         //Diagnol check already written above
+    }
+    //Checks middle row vertically
+    if (spaces[4] === currentPlayer) {
+        if (spaces[1] === currentPlayer && spaces[7] === currentPlayer) {
+            console.log(`${currentPlayer} Wins Vertically In The Middle`)
+            return true;
+        }
+        if (spaces[3] === currentPlayer && spaces[5] === currentPlayer) {
+            console.log(`${currentPlayer} Wins Horizontally In The Midde`)
+            return true;
+        }
     }
 }
 
