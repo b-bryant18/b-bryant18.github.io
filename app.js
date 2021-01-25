@@ -3,7 +3,7 @@ const boxes = Array.from(document.getElementsByClassName('box'));
 const playText = document.getElementById('playText');
 const restartBtn = document.getElementById('restartButton');
 
-const spaces;
+const spaces = [];
 const O_TEXT = "O";
 const X_TEXT = "X";
 //First player will use Os
@@ -99,10 +99,10 @@ const playerHasWon = () => {
     }
 };
 
-restartBtn.addEventListener('click', () => {
+const restart = () => {
     spaces.forEach((space, index) => {
         //Removes player IDs from spaces
-        space[index] = null;
+        spaces[index] = null;
     })
     //Removes Xs & Os from board
     boxes.forEach((box) => {
@@ -112,7 +112,11 @@ restartBtn.addEventListener('click', () => {
     playText.innerText = `Let's Play!`;
     //Reset starting player
     currentPlayer = O_TEXT;
-})
+}
 
+//Event listener for restart function
+restartBtn.addEventListener('click', restart);
+
+restart();
 
 drawBoard();
