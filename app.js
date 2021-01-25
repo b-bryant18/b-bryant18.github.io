@@ -1,13 +1,13 @@
 const boxes = Array.from(document.getElementsByClassName('box'));
 //Creates an array from array like objects
 const playText = document.getElementById('playText');
-const restart = document.getElementById('restartButton');
+const restartBtn = document.getElementById('restartButton');
 
-const spaces = [null, null, null, null, null, null, null, null, null];
+const spaces;
 const O_TEXT = "O";
 const X_TEXT = "X";
 //First player will use Os
-let currentPlayer = O_TEXT;
+let currentPlayer;
 
 //Styling for gameboard rows
 const drawBoard = () => {
@@ -97,10 +97,22 @@ const playerHasWon = () => {
             return true;
         }
     }
-}
+};
 
-const restart = () => {
+restartBtn.addEventListener('click', () => {
+    spaces.forEach((space, index) => {
+        //Removes player IDs from spaces
+        space[index] = null;
+    })
+    //Removes Xs & Os from board
+    boxes.forEach((box) => {
+        box.innerText = "";
+    })
+    //Resets winner text
+    playText.innerText = `Let's Play!`;
+    //Reset starting player
+    currentPlayer = O_TEXT;
+})
 
-}
 
 drawBoard();
