@@ -1,6 +1,7 @@
 const boxes = Array.from(document.getElementsByClassName('box'));
 //Creates an array from array like objects
 const playText = document.getElementById('playText');
+const restart = document.getElementById('restartButton');
 
 const spaces = [null, null, null, null, null, null, null, null, null];
 const O_TEXT = "O";
@@ -96,6 +97,10 @@ const playerHasWon = () => {
             return true;
         }
     }
+}
+
+const restart = () => {
+
 }
 
 drawBoard();
