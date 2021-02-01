@@ -1,11 +1,11 @@
 :root {
-    --purple: #3e0249
+    --blue: #1e90ff
 }
 
 body {
     margin: 0;
     padding: 0;
-    color: var(--purple);
+    color: var(--blue);
     font-family: sans-serif;
 }
 
@@ -42,16 +42,16 @@ margin-top: 40px ;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--purple);
+    color: var(--blue);
     font-size: 150px;
 }
 
 button {
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: var(--purple);
+    background-color: var(--blue);
     color: white;
-    border-color: var(--purple);
+    border-color: var(--blue);
     font-size: 18px;
     transition: 200ms transform;
 }
